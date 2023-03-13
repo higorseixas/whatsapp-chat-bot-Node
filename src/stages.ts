@@ -19,6 +19,10 @@ import {
       descricao: 'Address',
       stage: stageTwo,
     },
+    {
+      descricao: 'Cadastro',
+      stage: stageTwo,
+    },
   ];
   
   export function getStage({ from }) {
