@@ -2,6 +2,7 @@ import {
     initialStage,
     stageOne,
     stageTwo,
+    stageThree,
   } from './stages/index';
   
   import { storage } from './storage';
@@ -20,8 +21,8 @@ import {
       stage: stageTwo,
     },
     {
-      descricao: 'Cadastro',
-      stage: stageTwo,
+      descricao: 'Register',
+      stage: stageThree,
     },
   ];
   

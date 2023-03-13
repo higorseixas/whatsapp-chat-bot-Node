@@ -1,4 +1,4 @@
-export const menuInicial = 
+export const initialMenu = 
 '👋 Olá, como vai? \n\n'+
 'Eu sou da Imobiliaria SkyNet , o *assistente virtual* . \n'+
 '*Posso te ajudar?* 🙋‍♂️ \n-----------------------------------\n'+ 
