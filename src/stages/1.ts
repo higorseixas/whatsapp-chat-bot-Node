@@ -1,9 +1,9 @@
 import { menu } from "../menu";
 import { storage } from "../storage";
-import { neighborhoods } from "./neighborhoods";
 import { stageInterface } from "../interfaces/stageInterface";
 import { confirmRegister } from "../responses/confirmRegister";
 import { register } from "../responses/register";
+import { wrongOption } from "../responses/wrongOption";
 
 export const stageOne = {
   exec(exec: stageInterface) {
@@ -23,6 +23,6 @@ export const stageOne = {
       return register;
     }
 
-    return "❌ *Digite uma opção válida, por favor.* \n⚠️ ```APENAS UMA OPÇÃO POR VEZ``` ⚠️";
+    return wrongOption;
   },
 };
