@@ -1,5 +1,6 @@
 import { Whatsapp, create, Message, SocketState } from 'venom-bot';
 import { stages, getStage } from './stages';
+import { UserService } from './module/user/user.service';
 
 export type QRcode = {
   base64r: string;
@@ -11,6 +12,7 @@ export class Sender {
   private client: Whatsapp;
   private conected: boolean;
   private qr: QRcode;
+  private userService = new UserService();
 
   constructor() {
     this.initialize();
@@ -33,31 +35,34 @@ export class Sender {
     const qr = (base64r: string, asciiQR: string, attempts: number) => {
       this.qr = { base64r, asciiQR, attempts };
     };
-  
+
     const status = (statusSession: string) => {
       this.conected = ['isLogged', 'qrReadSuccess', 'chatsAvailable'].includes(
         statusSession
       );
     };
 
-    const start = (client: Whatsapp) => {
-      client.onMessage((message) => {
-        if (!message.isGroupMsg) {
-            const currentStage = getStage({ from: message.from });
-  
-            const messageResponse = stages[currentStage].stage.exec({
-              from: message.from,
-              message: message.body,
-              client,
-            });
-    
-            if (messageResponse) {
-              client.sendText(message.from, messageResponse).then(() => {
-                console.log('Message sent.');
-              }).catch(error => console.error('Error when sending message', error));
-            }
-        }
-      });
+    const start = async (client: Whatsapp) => {
+      const user = this.userService.getUser('10515154511')
+      console.log('user: ', user);
+      // return user;
+      // client.onMessage((message) => {
+      //   if (!message.isGroupMsg) {
+      //     const currentStage = getStage({ from: message.from });
+
+      //     const messageResponse = stages[currentStage].stage.exec({
+      //       from: message.from,
+      //       message: message.body,
+      //       client,
+      //     });
+
+      //     if (messageResponse) {
+      //       client.sendText(message.from, messageResponse).then(() => {
+      //         console.log('Message sent.');
+      //       }).catch(error => console.error('Error when sending message', error));
+      //     }
+      //   }
+      // });
     }
 
     create('ws-bot', qr, status)
