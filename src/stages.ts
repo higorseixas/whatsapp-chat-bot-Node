@@ -32,8 +32,6 @@ import {
     }
     storage[from] = {
       stage: 0,
-      itens: [],
-      address: '',
     };
   
     return storage[from].stage;
