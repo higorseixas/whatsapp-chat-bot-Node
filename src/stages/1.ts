@@ -11,14 +11,14 @@ export const stageOne = {
       exec.message.toUpperCase() === "S" ||
       exec.message === "1"
     ) {
-      storage[exec.from].stage = 2;
+      storage[exec.from].stage = 3;
       return confirmRegister;
     } else if (
       exec.message.toUpperCase() === "NÃ0" ||
       exec.message.toUpperCase() === "NAO" ||
       exec.message === "2"
     ) {
-      storage[exec.from].stage = 3;
+      storage[exec.from].stage = 2;
       return register;
     }
 
