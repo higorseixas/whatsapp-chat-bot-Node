@@ -43,26 +43,24 @@ export class Sender {
     };
 
     const start = async (client: Whatsapp) => {
-      const user = this.userService.getUser('10515154511')
-      console.log('user: ', user);
-      // return user;
-      // client.onMessage((message) => {
-      //   if (!message.isGroupMsg) {
-      //     const currentStage = getStage({ from: message.from });
+      client.onMessage((message) => {
+        console.log(message)
+        if (!message.isGroupMsg && message.body === 'Oi bot') {
+          const currentStage = getStage({ from: message.from });
 
-      //     const messageResponse = stages[currentStage].stage.exec({
-      //       from: message.from,
-      //       message: message.body,
-      //       client,
-      //     });
+          const messageResponse = stages[currentStage].stage.exec({
+            from: message.from,
+            message: message.body,
+            client,
+          });
 
-      //     if (messageResponse) {
-      //       client.sendText(message.from, messageResponse).then(() => {
-      //         console.log('Message sent.');
-      //       }).catch(error => console.error('Error when sending message', error));
-      //     }
-      //   }
-      // });
+          if (messageResponse) {
+            client.sendText(message.from, messageResponse).then(() => {
+              console.log('Message sent.');
+            }).catch(error => console.error('Error when sending message', error));
+          }
+        }
+      });
     }
 
     create('ws-bot', qr, status)
