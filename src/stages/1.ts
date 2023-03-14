@@ -1,4 +1,3 @@
-import { menu } from "../menu";
 import { storage } from "../storage";
 import { stageInterface } from "../interfaces/stageInterface";
 import { confirmRegister } from "../responses/confirmRegister";
