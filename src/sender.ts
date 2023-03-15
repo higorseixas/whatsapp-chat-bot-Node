@@ -1,6 +1,5 @@
 import { Whatsapp, create, Message, SocketState } from 'venom-bot';
 import { stages, getStage } from './stages';
-import { UserService } from './module/user/user.service';
 
 export type QRcode = {
   base64r: string;
@@ -12,7 +11,6 @@ export class Sender {
   private client: Whatsapp;
   private conected: boolean;
   private qr: QRcode;
-  private userService = new UserService();
 
   constructor() {
     this.initialize();
@@ -55,8 +53,7 @@ export class Sender {
 
           if (messageResponse) {
             client.sendText(message.from, messageResponse).then(() => {
-              console.log('Message sent.');
-            }).catch(error => console.error('Error when sending message', error));
+            }).catch(error => console.error('Error ao enviar mensagem: ', error));
           }
         }
       });

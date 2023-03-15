@@ -14,26 +14,34 @@ export class UserService {
                 if (!user) {
                     return await this.prisma.user.create({
                         data: {
-                            cpf: cpf,
+                            cpf: cpf.replace(/[^a-zA-Z0-9]/g, ''),
                             nome: nome,
                             email: email,
                             telefone: telefone
                         }
                     })
                         .then((result) => result)
-                        .catch((error) => console.log(error))
+                        .catch((error) => {
+                            console.log(error)
+                            throw new Error('Erro ao criar usuário!')
+                        })
                 } else {
                     throw new Error('Usuário já existe na base de dados!')
                 }
             })
-            .catch((error) => console.log(error))
+            .catch((error) => {
+                console.log(error)
+                throw new Error('Erro ao buscar por usuário!')
+            })
     }
 
     async getUser(cpf: string) {
         const user = await this.prisma.user.findUnique({ where: { cpf: cpf } })
             .then((result) => result)
-            .catch((error) => console.error(error))
-        console.log('userService: ', user);
+            .catch((error) => {
+                console.error(error)
+                throw new Error(error.message)
+            })
         return user;
     }
 
@@ -52,10 +60,16 @@ export class UserService {
                         data: { nome, email, telefone }
                     })
                         .then((result) => result)
-                        .catch((error) => console.log(error))
+                        .catch((error) => {
+                            console.log(error)
+                            throw new Error(error.message)
+                        })
                 }
             })
-            .catch((error) => console.log(error))
+            .catch((error) => {
+                console.log(error)
+                throw new Error(error.message)
+            })
     }
 
     async deleteUser(cpf: string) {
@@ -70,10 +84,16 @@ export class UserService {
                         }
                     })
                         .then((result) => result)
-                        .catch((error) => console.log(error))
+                        .catch((error) => {
+                            console.log(error)
+                            throw new Error(error.message)
+                        })
                 }
             })
-            .catch((error) => console.log(error))
+            .catch((error) => {
+                console.log(error)
+                throw new Error(error.message)
+            })
     }
 
 }

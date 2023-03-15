@@ -4,4 +4,4 @@ export const initialMenu =
     '*Posso te ajudar?* 🙋‍♂️ \n-----------------------------------\n' +
     ' ```VOCÊ JÁ É NOSSO CLIENTE?``` \n' +
     '1️⃣ - ```SIM``` \n' +
-    '2️⃣ - ```NÃO```\n'
+    '2️⃣ - ```NÃO```'

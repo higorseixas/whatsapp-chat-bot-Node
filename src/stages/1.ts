@@ -5,7 +5,7 @@ import { register } from "../responses/register";
 import { wrongOption } from "../responses/wrongOption";
 
 export const stageOne = {
-  exec(exec: stageInterface) {
+  async exec(exec: stageInterface): Promise<string> {
     if (
       exec.message.toUpperCase() === "SIM" ||
       exec.message.toUpperCase() === "S" ||
