@@ -1,0 +1,1 @@
+export const successRegister = '📂👨‍💼 Seu cadastro foi finalizado com sucesso!\n\n'
