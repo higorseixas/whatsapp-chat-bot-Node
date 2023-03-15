@@ -14,7 +14,7 @@ export class UserService {
                 if (!user) {
                     return await this.prisma.user.create({
                         data: {
-                            cpf: cpf,
+                            cpf: cpf.replace(/[^a-zA-Z0-9]/g, ''),
                             nome: nome,
                             email: email,
                             telefone: telefone

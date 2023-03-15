@@ -4,6 +4,7 @@ import { userOptions } from "../responses/userOptions";
 import { register } from "../responses/register";
 import { successRegister } from "../responses/successRegister";
 import { UserService } from '../module/user/user.service';
+import { cpf } from 'cpf-cnpj-validator'; 
 
 let returnMessage;
 let userData;
@@ -15,7 +16,7 @@ export const stageTwo = {
     if (userData.length < 4) {//validação dos dados
       returnMessage = '❌ *Dados faltantes.* ❌\n' + register;
       return false
-    } else if (userData[0] !== '22222222') {//validação de CPF
+    } else if (!cpf.isValid(userData[0].replace(/[^a-zA-Z0-9]/g, ''))) {//validação de CPF
       returnMessage = '❌ *CPF inválido.* ❌\n' + register;
       return false
     } else {
