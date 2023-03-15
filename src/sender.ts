@@ -44,8 +44,7 @@ export class Sender {
 
     const start = async (client: Whatsapp) => {
       client.onMessage((message) => {
-        console.log(message)
-        if (!message.isGroupMsg && message.body === 'Oi bot') {
+        if (!message.isGroupMsg) {
           const currentStage = getStage({ from: message.from });
 
           const messageResponse = stages[currentStage].stage.exec({
