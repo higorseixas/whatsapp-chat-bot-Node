@@ -1,5 +1,4 @@
-export const userNotFound =
-    '❌ Usuário não encntrado \n\n' +
+export const userChoisesForCpf =
     '1️⃣ - ```Informar CPF novamente ``` \n' +
     '2️⃣ - ```Cadastrar usuário```\n' +
     '3️⃣ - ```Encerrar atendimento```\n' +
