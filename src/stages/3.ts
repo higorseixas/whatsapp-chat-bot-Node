@@ -1,26 +1,27 @@
 import { stageInterface } from "../interfaces/stageInterface";
 import { UserService } from "../module/user/user.service";
 import { confirmRegister } from "../responses/confirmRegister";
-import { userNotFound } from "../responses/userNotFound";
+import { userChoisesForCpf } from "../responses/userChoisesForCpf";
 import { storage } from "../storage";
 
 const userService = new UserService();
 
 export const stageThree = {
-  async validateCPF(cpf: string) {
-    return true;
-  },
   async exec(exec: stageInterface) {
-    if (await this.validateCPF(exec.message)) {
-      //Busar no banco de dados o usuário
-      const user = await userService.getUser(exec.message);
+    const cpf = exec.message;
+    if (cpf.isValid(exec.message)) {
+      const user = await userService.getUser(exec.message); //Busca no banco de dados o usuário
       if (user) {
         storage[exec.from].stage = 4;
-        return `O nome correspondente a este CPF, está correto?⬇‍️ \n ${user.nome}`;
+        return `Os dados de usuario correspondente a este CPF, estão corretos (SIM/NÃO)?⬇‍️ \n`+
+        `${user.nome}\n` +
+        `${user.cpf}\n` +
+        `${user.email}\n` +
+        `${user.telefone}\n`;
       } else {
         //Deseja se cadastrar ou informar novamente o CPF
         storage[exec.from].stage = 5;
-        return userNotFound;
+        return     '❌ Usuário não encntrado \n\n' + userChoisesForCpf;
       }
     } else {
       //Usuário digitou algo que não foi aceito como cpf
