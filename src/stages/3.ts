@@ -12,6 +12,7 @@ export const stageThree = {
     if (cpf.isValid(exec.message)) {
       const user = await userService.getUser(exec.message); //Busca no banco de dados o usuário
       if (user) {
+        storage[exec.from].cpf = user.cpf;
         storage[exec.from].stage = 4;
         return `Os dados de usuario correspondente a este CPF, estão corretos (SIM/NÃO)?⬇‍️ \n`+
         `${user.nome}\n` +
