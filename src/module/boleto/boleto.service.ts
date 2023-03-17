@@ -30,7 +30,7 @@ export class BoletoService {
             })
     }
 
-    async getBoletoByData(data: string) {
+    async getBoletoByData(data: Buffer) {
         const boletos: BoletoInterface[] = await this.prisma.boleto.findMany({ where: { data: data } })
             .then((result) => result)
             .catch((error) => {
