@@ -22,7 +22,7 @@ model User {
 
 model Boleto {
   id        Int      @id @default(autoincrement())
-  data      String
+  data      Bytes
   User      User    @relation(fields: [userCpf], references: [cpf])
   userCpf   String
   createdAt DateTime @default(now())
