@@ -5,6 +5,7 @@ import { register } from "../responses/register";
 import { successRegister } from "../responses/successRegister";
 import { UserService } from '../module/user/user.service';
 import { cpf } from 'cpf-cnpj-validator';
+import { UserInterface } from "../interfaces/userInterface";
 
 let returnMessage;
 let userData;
@@ -36,7 +37,13 @@ export const stageTwo = {
   async exec(exec: stageInterface): Promise<string> {
     const validate = this.validateUser(exec)
     if (validate) {
-      return await userService.createUser(userData[0], userData[1], userData[2], userData[3])
+      const user: UserInterface = {
+        cpf: userData[0], 
+        nome: userData[1], 
+        email: userData[2], 
+        telefone: userData[3]
+      }
+      return await userService.createUser(user)
         .then(() => {
           storage[exec.from].stage = 6;
           return successRegister + userOptions;
