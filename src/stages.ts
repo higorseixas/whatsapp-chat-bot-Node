@@ -3,26 +3,39 @@ import {
     stageOne,
     stageTwo,
     stageThree,
+    stageFour, 
+    stageFive,
+    stageEight
   } from './stages/index';
   
   import { storage } from './storage';
   
   export const stages = [
     {
-      descricao: 'Welcome',
+      descricao: 'initialStage',
       stage: initialStage,
     },
     {
-      descricao: 'Menu',
+      descricao: 'stageOne',
       stage: stageOne,
     },
     {
-      descricao: 'Address',
+      descricao: 'stageTwo',
       stage: stageTwo,
     },
     {
-      descricao: 'Register',
+      descricao: 'stageThree',
       stage: stageThree,
+    },{
+      descricao: 'stageFour',
+      stage: stageFour,
+    },
+    {
+      descricao: 'stageFive',
+      stage: stageFive,
+    },    {
+      descricao: 'stageEight',
+      stage: stageEight,
     },
   ];
   
