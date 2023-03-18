@@ -1,4 +1,4 @@
 export interface BoletoInterface {
-    data: Buffer,
+    data: string,
     userCpf: string
 }
