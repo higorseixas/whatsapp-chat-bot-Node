@@ -14,7 +14,7 @@ export const stageOne = {
       storage[exec.from].stage = 3;
       return confirmRegister;
     } else if (
-      exec.message.toUpperCase() === "NÃ0" ||
+      exec.message.toUpperCase() === "NÃO" ||
       exec.message.toUpperCase() === "NAO" ||
       exec.message.toUpperCase() === "N" ||
       exec.message === "2"

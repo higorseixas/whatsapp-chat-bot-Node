@@ -3,16 +3,17 @@ import { UserService } from "../module/user/user.service";
 import { confirmRegister } from "../responses/confirmRegister";
 import { userChoisesForCpf } from "../responses/userChoisesForCpf";
 import { storage } from "../storage";
+import { cpf } from "cpf-cnpj-validator";
 
 const userService = new UserService();
 
 export const stageThree = {
   async exec(exec: stageInterface) {
-    const cpf = exec.message;
-    if (cpf.isValid(exec.message)) {
+    const cpfEnviado = exec.message;
+    if (cpf.isValid(cpfEnviado.replace(/[^a-zA-Z0-9]/g, ''))) {
       const user = await userService.getUser(exec.message); //Busca no banco de dados o usuário
       if (user) {
-        storage[exec.from].cpf = user.cpf;
+        storage.cpf = user.cpf;
         storage[exec.from].stage = 4;
         return `Os dados de usuario correspondente a este CPF, estão corretos (SIM/NÃO)?⬇‍️ \n`+
         `${user.nome}\n` +

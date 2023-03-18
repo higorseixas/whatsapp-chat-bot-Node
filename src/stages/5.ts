@@ -2,7 +2,6 @@ import { storage } from "../storage";
 import { stageInterface } from "../interfaces/stageInterface";
 import { confirmRegister } from "../responses/confirmRegister";
 import { wrongOption } from "../responses/wrongOption";
-import { userChoisesForCpf } from "../responses/userChoisesForCpf";
 import { register } from "../responses/register";
 import { finalMessage } from "../responses/finalMessage";
 
