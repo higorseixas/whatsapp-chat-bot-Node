@@ -1,5 +1,7 @@
 import { Whatsapp, create, Message, SocketState } from 'venom-bot';
+import { returnBoleto } from './responses/returnBoleto';
 import { stages, getStage } from './stages';
+import { storage } from './storage';
 
 
 // import { BoletoInterface } from './interfaces/boletoInterface';
@@ -84,8 +86,12 @@ export class Sender {
           });
 
           if (messageResponse) {
-            client.sendText(message.from, messageResponse).then(() => {
-            }).catch(error => console.error('Error ao enviar mensagem: ', error));
+            if (storage.base64 && storage.fileName) {
+              client.sendFileFromBase64(message.from, storage.base64, storage.fileName, returnBoleto);
+            } else {
+              client.sendText(message.from, messageResponse).then(() => {
+              }).catch(error => console.error('Error ao enviar mensagem: ', error));
+            }
           }
         }
       });

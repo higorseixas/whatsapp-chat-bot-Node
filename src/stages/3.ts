@@ -4,6 +4,7 @@ import { confirmRegister } from "../responses/confirmRegister";
 import { userChoisesForCpf } from "../responses/userChoisesForCpf";
 import { storage } from "../storage";
 import { cpf } from "cpf-cnpj-validator";
+import { confirmInformations } from "../responses/confirmInformations";
 
 const userService = new UserService();
 
@@ -15,20 +16,16 @@ export const stageThree = {
       if (user) {
         storage.cpf = user.cpf;
         storage[exec.from].stage = 4;
-        return `Os dados de usuario correspondente a este CPF, estão corretos (SIM/NÃO)?⬇‍️ \n`+
-        `${user.nome}\n` +
-        `${user.cpf}\n` +
-        `${user.email}\n` +
-        `${user.telefone}\n`;
+        return confirmInformations(user.nome, user.cpf, user.email, user.telefone);
       } else {
         //Deseja se cadastrar ou informar novamente o CPF
         storage[exec.from].stage = 5;
-        return     '❌ Usuário não encntrado \n\n' + userChoisesForCpf;
+        return     '❌ Usuário não encontrado ❌\n\n' + userChoisesForCpf;
       }
     } else {
       //Usuário digitou algo que não foi aceito como cpf
       storage[exec.from].stage = 3;
-      return "❌ Cpf incorreto \n\n" + confirmRegister;
+      return "❌ Cpf incorreto ❌\n\n" + confirmRegister;
     }
   },
 }

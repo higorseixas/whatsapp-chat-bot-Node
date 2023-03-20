@@ -5,9 +5,12 @@ import { stageThree } from './3';
 import { stageFour } from './4';
 import { stageFive } from './5';
 import { stageSix } from './6';
+import { stageSeven } from './7';
 import { stageEight } from './8';
 import { stageNine } from './9';
 
-export { initialStage, stageOne, stageTwo, 
-  stageThree, stageFour, stageFive, 
-  stageSix, stageEight, stageNine };
+export {
+  initialStage, stageOne, stageTwo,
+  stageThree, stageFour, stageFive,
+  stageSix, stageSeven, stageEight, stageNine
+};

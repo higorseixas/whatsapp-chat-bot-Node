@@ -1,10 +1,11 @@
-import { PrismaClient } from "@prisma/client"
+import { Boleto, PrismaClient } from "@prisma/client"
 import { BoletoInterface } from "../../interfaces/boletoInterface";
 
 export class BoletoService {
     constructor(private prisma = new PrismaClient()) { }
 
     async createBoleto(boleto: BoletoInterface) {
+        const saoPauloDateTime = new Date().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
         return await this.getBoletoByData(boleto.data)
             .then(async (boletos: BoletoInterface[]) => {
                 const existeBoleto = boletos.some(dataBoleto => dataBoleto.data === boleto.data)
@@ -12,7 +13,9 @@ export class BoletoService {
                     return await this.prisma.boleto.create({
                         data: {
                             data: boleto.data,
-                            userCpf: boleto.userCpf
+                            userCpf: boleto.userCpf,
+                            createdAt: saoPauloDateTime,
+                            updatedAt: saoPauloDateTime,
                         }
                     })
                         .then((result) => result)
@@ -38,6 +41,22 @@ export class BoletoService {
                 throw new Error(error.message)
             })
         return boletos;
+    }
+
+    async getBoletoByDate(cpf: string, month: string, year: string) {
+        const boletos = await this.prisma.boleto.findMany({ where: { userCpf: cpf } })
+            .then((result) => result)
+            .catch((error) => {
+                console.error(error)
+                throw new Error(error.message)
+            })
+        const boleto: Boleto | undefined = boletos.find((element: Boleto) => {
+            const boletoDate = element.createdAt.split(' ')[0].split('/')
+            const boletoMonth = boletoDate[1]
+            const boletoYear = boletoDate[2]
+            return (month === boletoMonth && year === boletoYear)
+        })
+        return boleto
     }
 
     async getBoletosByUser(userCpf: string) {
