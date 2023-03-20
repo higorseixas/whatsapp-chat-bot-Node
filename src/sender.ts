@@ -87,7 +87,9 @@ export class Sender {
 
           if (messageResponse) {
             if (storage.base64 && storage.fileName) {
-              client.sendFileFromBase64(message.from, storage.base64, storage.fileName, returnBoleto);
+              client.sendFileFromBase64(message.from, storage.base64, storage.fileName, messageResponse);
+              storage.base64 = undefined
+              storage.fileName = undefined
             } else {
               client.sendText(message.from, messageResponse).then(() => {
               }).catch(error => console.error('Error ao enviar mensagem: ', error));
