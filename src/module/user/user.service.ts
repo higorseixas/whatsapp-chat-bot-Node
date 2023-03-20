@@ -1,23 +1,19 @@
 import { PrismaClient } from "@prisma/client"
+import { UserInterface } from "../../interfaces/userInterface"
 
 export class UserService {
     constructor(private prisma = new PrismaClient()) { }
 
-    async createUser(
-        cpf: string,
-        nome: string,
-        email: string,
-        telefone: string
-    ) {
-        return await this.getUser(cpf)
+    async createUser(requestUser: UserInterface) {
+        return await this.getUser(requestUser.cpf)
             .then(async (user) => {
                 if (!user) {
                     return await this.prisma.user.create({
                         data: {
-                            cpf: cpf.replace(/[^a-zA-Z0-9]/g, ''),
-                            nome: nome,
-                            email: email,
-                            telefone: telefone
+                            cpf: requestUser.cpf.replace(/[^a-zA-Z0-9]/g, ''),
+                            nome: requestUser.nome,
+                            email: requestUser.email,
+                            telefone: requestUser.telefone
                         }
                     })
                         .then((result) => result)
@@ -46,10 +42,11 @@ export class UserService {
     }
 
 
-    async updateUser(cpf: string,
-        nome: string,
-        email: string,
-        telefone: string) {
+    async updateUser(requestUser: UserInterface) {
+        const cpf = requestUser.cpf
+        const nome = requestUser.nome
+        const email = requestUser.email
+        const telefone = requestUser.telefone
         return await this.getUser(cpf)
             .then(async (user) => {
                 if (!user) {
