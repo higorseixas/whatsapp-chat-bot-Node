@@ -6,7 +6,8 @@ import {
     stageFour, 
     stageFive,
     stageSix,
-    stageEight
+    stageEight,
+    stageNine,
   } from './stages/index';
   
   import { storage } from './storage';
@@ -42,6 +43,10 @@ import {
     {
       descricao: 'stageEight',
       stage: stageEight,
+    },
+    {
+      descricao: 'stageNine',
+      stage: stageNine,
     },
   ];
   
