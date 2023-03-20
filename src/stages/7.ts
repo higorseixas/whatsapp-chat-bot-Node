@@ -3,6 +3,7 @@ import { stageInterface } from "../interfaces/stageInterface";
 import { BoletoService } from "../module/boleto/boleto.service";
 import { boletoNotFound } from "../responses/boletoNotFound";
 import { returnBoleto } from "../responses/returnBoleto";
+import { userFinalChoises } from "../responses/userFinalChoises";
 import { userOptions } from "../responses/userOptions";
 import { storage } from "../storage";
 import { numberToMonth } from "../utils/numberToMonth";
@@ -21,11 +22,11 @@ export const stageSeven = {
                 numberToMonth(boletoDate.createdAt.split(' ')[0].split('/')[1]) + ' ' +
                 boletoDate.createdAt.split(' ')[0].split('/')[2] +
                 '.pdf'
-
-            return returnBoleto;
+            storage[exec.from].stage = 9;    
+            return returnBoleto + userFinalChoises;
         } else {
             storage[exec.from].stage = 9;
-            return boletoNotFound
+            return boletoNotFound + userFinalChoises;
         }
     }
 }

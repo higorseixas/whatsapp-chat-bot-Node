@@ -7,6 +7,7 @@ import { returnBoleto } from "../responses/returnBoleto";
 import { confirmDeleteUser } from "../responses/confirmDeleteUser";
 import { BoletoService } from "../module/boleto/boleto.service";
 import { numberToMonth } from "../utils/numberToMonth";
+import { userFinalChoises } from "../responses/userFinalChoises";
 
 const boletoService = new BoletoService()
 
@@ -23,7 +24,7 @@ export const stageSix = {
         boletos[boletos.length - 1].createdAt.split(' ')[0].split('/')[2] +
         '.pdf'
       storage[exec.from].stage = 9;
-      return returnBoleto;
+      return returnBoleto + '\n\n' + userFinalChoises;
 
     } else if (
       exec.message.toUpperCase() === "dois" ||
