@@ -21,8 +21,8 @@ export const stageOne = {
     ) {
       storage[exec.from].stage = 2;
       return register;
+    }else{
+      return wrongOption;
     }
-
-    return wrongOption;
   },
 };
