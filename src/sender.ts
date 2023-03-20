@@ -47,7 +47,7 @@ export class Sender {
     };
 
     const start = async (client: Whatsapp) => {
-      //TESTE SALVANDO UM ARQUIVO PDF NO BANCO DE DADOS(BASE64)
+      //TESTE - SALVANDO UM ARQUIVO PDF NO BANCO DE DADOS(BASE64)
 
       // const pdfBuffer = fs.readFileSync('./dummy.pdf');
       // const base64String = pdfBuffer.toString('base64');
