@@ -23,7 +23,8 @@ export const stageFive = {
       exec.message.toUpperCase() === 3 ||
       exec.message === "3"
     ) {
-      storage[exec.from].stage = 0;//Encerrar atendimento 
+      storage.cpf = ''
+      storage[exec.from].stage = 10;//Encerrar atendimento 
       return finalMessage;
     } else {
       storage[exec.from].stage = 3;

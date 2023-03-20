@@ -22,6 +22,7 @@ export const stageNine = {
       exec.message.toUpperCase() === 2 ||
       exec.message === "2"
     ) {
+      storage.cpf = ''
       storage[exec.from].stage = 10;
       return finalMessage;
     } else {

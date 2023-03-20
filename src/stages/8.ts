@@ -17,10 +17,11 @@ export const stageEight = {
       exec.message.toUpperCase() === 1 ||
       exec.message === "1"
     ) {
-      storage[exec.from].stage = 0; //Encerrar operação
       userService.deleteUser(storage.cpf);
+      storage.cpf = ''
+      storage[exec.from].stage = 10; //Encerrar operação
       return confirmFinalDeleteUser + finalMessage;
-    } else if (      
+    } else if (
       exec.message.toUpperCase() === "NÃO" ||
       exec.message.toUpperCase() === "NAO" ||
       exec.message.toUpperCase() === "N" ||
