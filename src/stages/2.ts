@@ -46,6 +46,7 @@ export const stageTwo = {
       return await userService.createUser(user)
         .then(() => {
           storage[exec.from].stage = 6;
+          storage.cpf = user.cpf
           return successRegister + userOptions;
         })
         .catch((error) => {
