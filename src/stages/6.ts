@@ -6,7 +6,7 @@ import { requestDate } from "../responses/requestDate";
 import { returnBoleto } from "../responses/returnBoleto";
 import { confirmDeleteUser } from "../responses/confirmDeleteUser";
 import { BoletoService } from "../module/boleto/boleto.service";
-import { Boleto } from "@prisma/client";
+import { numberToMonth } from "../utils/numberToMonth";
 
 const boletoService = new BoletoService()
 
@@ -18,6 +18,10 @@ export const stageSix = {
     ) {
       const boletos = await boletoService.getBoletosByUser(storage.cpf)
       storage.base64 = boletos[boletos.length - 1].data
+      storage.fileName = 'Boleto ' +
+        numberToMonth(boletos[boletos.length - 1].createdAt.split(' ')[0].split('/')[1]) + ' ' +
+        boletos[boletos.length - 1].createdAt.split(' ')[0].split('/')[2] +
+        '.pdf'
       storage[exec.from].stage = 9;
       return returnBoleto;
 

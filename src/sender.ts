@@ -86,8 +86,8 @@ export class Sender {
           });
 
           if (messageResponse) {
-            if (storage.base64) {
-              client.sendFileFromBase64(message.from, storage.base64, 'boleto.pdf', returnBoleto);
+            if (storage.base64 && storage.fileName) {
+              client.sendFileFromBase64(message.from, storage.base64, storage.fileName, returnBoleto);
             } else {
               client.sendText(message.from, messageResponse).then(() => {
               }).catch(error => console.error('Error ao enviar mensagem: ', error));
