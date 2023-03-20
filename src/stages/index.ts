@@ -6,5 +6,8 @@ import { stageFour } from './4';
 import { stageFive } from './5';
 import { stageSix } from './6';
 import { stageEight } from './8';
+import { stageNine } from './9';
 
-export { initialStage, stageOne, stageTwo,  stageThree, stageFour, stageFive, stageSix, stageEight };
+export { initialStage, stageOne, stageTwo, 
+  stageThree, stageFour, stageFive, 
+  stageSix, stageEight, stageNine };
