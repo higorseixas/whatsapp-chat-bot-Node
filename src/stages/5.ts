@@ -24,7 +24,7 @@ export const stageFive = {
       exec.message === "3"
     ) {
       storage.cpf = ''
-      storage[exec.from].stage = 10;//Encerrar atendimento 
+      storage[exec.from].stage = 0;//Encerrar atendimento 
       return finalMessage;
     } else {
       storage[exec.from].stage = 3;

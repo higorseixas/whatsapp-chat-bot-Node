@@ -23,7 +23,7 @@ export const stageNine = {
       exec.message === "2"
     ) {
       storage.cpf = ''
-      storage[exec.from].stage = 10;
+      storage[exec.from].stage = 0;
       return finalMessage;
     } else {
       storage[exec.from].stage = 9;

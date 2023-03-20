@@ -19,7 +19,7 @@ export const stageEight = {
     ) {
       userService.deleteUser(storage.cpf);
       storage.cpf = ''
-      storage[exec.from].stage = 10; //Encerrar operação
+      storage[exec.from].stage = 0; //Encerrar operação
       return confirmFinalDeleteUser + finalMessage;
     } else if (
       exec.message.toUpperCase() === "NÃO" ||
