@@ -44,19 +44,19 @@ export class BoletoService {
     }
 
     async getBoletoByDate(cpf: string, month: string, year: string) {
-        return await this.prisma.boleto.findMany({ where: { userCpf: cpf } })
-            .then((boletos: Boleto[]) => {
-                boletos.filter((element: Boleto) => {
-                    const boletoDate = element.createdAt.split(' ')[0].split('/')
-                    const boletoMonth = boletoDate[1]
-                    const boletoYear = boletoDate[2]
-                    return (month === boletoMonth && year === boletoYear)
-                })
-            })
+        const boletos = await this.prisma.boleto.findMany({ where: { userCpf: cpf } })
+            .then((result) => result)
             .catch((error) => {
                 console.error(error)
                 throw new Error(error.message)
             })
+        const boleto: Boleto | undefined = boletos.find((element: Boleto) => {
+            const boletoDate = element.createdAt.split(' ')[0].split('/')
+            const boletoMonth = boletoDate[1]
+            const boletoYear = boletoDate[2]
+            return (month === boletoMonth && year === boletoYear)
+        })
+        return boleto
     }
 
     async getBoletosByUser(userCpf: string) {
