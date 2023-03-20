@@ -26,14 +26,14 @@ export const stageSix = {
       return returnBoleto;
 
     } else if (
-      exec.message.toUpperCase() === "dois" ||
+      exec.message.toUpperCase() === "DOIS" ||
       exec.message === "2"
     ) {
       storage[exec.from].stage = 7;
       return requestDate;
     } else if (
-      exec.message.toUpperCase() === "tres" ||
-      exec.message.toUpperCase() === "três" ||
+      exec.message.toUpperCase() === "TRES" ||
+      exec.message.toUpperCase() === "TRÊS" ||
       exec.message === "3"
     ) {
       storage[exec.from].stage = 8;
