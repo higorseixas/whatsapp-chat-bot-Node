@@ -16,7 +16,7 @@ export const stageNine = {
       storage[exec.from].stage = 6;
       return userOptions;
     } else if (      
-      exec.message.toUpperCase() === "NÃ0" ||
+      exec.message.toUpperCase() === "NÃO" ||
       exec.message.toUpperCase() === "NAO" ||
       exec.message.toUpperCase() === "N" ||
       exec.message.toUpperCase() === 2 ||
