@@ -18,7 +18,7 @@ export const stageEight = {
       exec.message === "1"
     ) {
       storage[exec.from].stage = 0; //Encerrar operação
-      if(storage.cpf) userService.deleteUser(storage.cpf);
+      userService.deleteUser(storage.cpf);
       return confirmFinalDeleteUser + finalMessage;
     } else if (      
       exec.message.toUpperCase() === "NÃ0" ||

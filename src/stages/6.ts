@@ -16,16 +16,9 @@ export const stageSix = {
       exec.message.toUpperCase() === "um" ||
       exec.message === "1"
     ) {
-      let boletos: Boleto[];
-      if (storage.cpf) {
-        boletos = await boletoService.getBoletosByUser(storage.cpf)
-        storage.base64 = boletos[boletos.length-1].data
-        storage[exec.from].stage = 9;
-        return returnBoleto;
-      } else {
-        console.log('CPF não salvo')
-      }
-      storage[exec.from].stage = 7;
+      const boletos = await boletoService.getBoletosByUser(storage.cpf)
+      storage.base64 = boletos[boletos.length - 1].data
+      storage[exec.from].stage = 9;
       return returnBoleto;
 
     } else if (
