@@ -21,7 +21,7 @@
   <img alt="Address" title="Address" align="center" style="width: 50%" src="./assets/SendBoleto.png" /><br/>
 
   <img alt="Bill" title="Bill" align="center" style="width: 50%" src="./assets/final.png" /><br/>
-  In case of unregistered user**
+  In case of unregistered user**<br/>
   <img alt="Assistant" title="Assistant" align="center" style="width: 50%" src="./assets/cadastro.png" />
 </h1>
 
