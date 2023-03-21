@@ -46,9 +46,17 @@ $ npm run start:dev
 ---
 
 Higor Seixas<br/>
-[![Twitter Badge](https://img.shields.io/badge/-@juniorwmr-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/juniorwmr)](https://twitter.com/HigorSeixas2) [![Linkedin Badge](https://img.shields.io/badge/-Washington-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/juniorwmr/)](https://www.linkedin.com/in/higor-celm-seixas-27rj/)
-[![Gmail Badge](https://img.shields.io/badge/-juniorwmr@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:juniorripardo@gmail.com)](higor.c.seixas@gmail.com)
+ <a href ="higor.c.seixas@gmail.com">
+  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+  <a href="https://www.linkedin.com/in/higor-celm-seixas-27rj/" alt="Linkedin">
+  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+   <a href="https://twitter.com/higoreixas2" alt="Twitter">
+  <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
 
 Lenardo Lima<br/>
-[![Twitter Badge](https://img.shields.io/badge/-@juniorwmr-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/juniorwmr)](https://twitter.com/arochaleeo) [![Linkedin Badge](https://img.shields.io/badge/-Washington-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/juniorwmr/)](https://www.linkedin.com/in/leonardo-vin%C3%ADcius-r-7ba1a6118/)
-[![Gmail Badge](https://img.shields.io/badge/-juniorwmr@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:juniorripardo@gmail.com)](leonardorocha.limaa@gmail.com)
+ <a href ="mailto:leonardorocha.limaa@gmail.com">
+  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+  <a href="https://www.linkedin.com/in/leonardo-vinícius-r-7ba1a6118/" alt="Linkedin">
+  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+   <a href="https://twitter.com/arochaleeo" alt="Twitter">
+  <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
